@@ -23,11 +23,19 @@ public class IntToEng {
     
     // 20未満の数字を変換するメソッド
     public static String undertw(int n) {
-    	return null;
+    	final String[] englishNum1 = {"zero", "one", "two", "three", "four",
+    			"five", "six", "seven", "eight", "nine",
+    			"ten", "eleven", "twelve", "thirteen", "fourteen",
+    			"fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
+    	
+    	return englishNum1[n];
     }
     
-    // 20以上の数字を変換するメソッド
+    // 20以上100未満の数字を変換するメソッド
     public static String abovetw(int n) {
+    	final String[] englishNum2 = {"twenty", "thirty", "forty", "fifty", "sixty",
+    			"seventy", "eighty", "ninety"};
+    	
     	return null;
     }
 }
