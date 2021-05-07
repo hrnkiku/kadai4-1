@@ -17,7 +17,8 @@ public class IntToEng {
     	String judged;
     	if (n < 0) throw new IllegalArgumentException("入力された数字が負の数です");
     	if (n < 20) judged = undertw(n);
-    	else judged = abovetw(n);
+    	else if(20 <=n && n <100)judged = abovetw(n);
+    	else judged = other(n);
     	return judged;
     }
     
@@ -35,8 +36,31 @@ public class IntToEng {
     public static String abovetw(int n) {
     	final String[] englishNum2 = {"twenty", "thirty", "forty", "fifty", "sixty",
     			"seventy", "eighty", "ninety"};
+    	
+    	 String answer;
+    	 
     	int divided = n / 10;
     	int surplus = n % 10;
-    	return (englishNum2[divided - 2] + "-" + undertw(surplus));
+    	if(n <20) answer = undertw(n);
+    	else if(surplus ==0) answer = englishNum2[divided - 2];
+    	else answer = englishNum2[divided - 2] + "-" + undertw(surplus);
+    	
+    	return (answer);
+    }
+    
+    //100以上1000未満の数字を変換するメソッド
+    public static String other(int n) {
+    	final String[] englishNum3 = {"one hundred", "two hundred", "three hundred", "four hundred",
+    			"five hundred", "six hundred", "seven hundred", "eight hundred", "nine hundred"};
+    	
+    	 String answer;
+    	 
+    	int divided = n / 100;
+    	int surplus = n % 100;
+    	if(surplus ==0) answer = englishNum3[divided - 1];
+    	else answer = englishNum3[divided - 1] + "-" + abovetw(surplus);
+   
+    	
+    	return (answer);
     }
 }
