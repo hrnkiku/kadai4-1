@@ -35,7 +35,8 @@ public class IntToEng {
     public static String abovetw(int n) {
     	final String[] englishNum2 = {"twenty", "thirty", "forty", "fifty", "sixty",
     			"seventy", "eighty", "ninety"};
-    	
-    	return null;
+    	int divided = n / 10;
+    	int surplus = n % 10;
+    	return (englishNum2[divided - 2] + "-" + undertw(surplus));
     }
 }
